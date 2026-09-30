@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>TREX Paraguay | Tecnología para tu hogar y negocio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #0b1d3b;
+      background: #fff;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 7%;
+      background: rgba(255,255,255,.97);
+      box-shadow: 0 2px 15px rgba(0,0,0,.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo img {
+      height: 62px;
+      width: auto;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #101d36;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    nav a:hover {
+      color: #168cff;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 680px;
+
+      background-image:
+        url("images/trex-mascota.png");
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      display: flex;
+      align-items: center;
+      padding: 70px 8%;
+      color: white;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(3,19,48,.82) 0%,
+          rgba(3,28,67,.58) 38%,
+          rgba(0,0,0,0) 70%
+        );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 670px;
+    }
+
+    .hero h1 {
+      font-size: 58px;
+      line-height: 1.07;
+      margin-bottom: 25px;
+      font-weight: 800;
+    }
+
+    .hero h1 span {
+      color: #45c8ff;
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #e5f3ff;
+      margin-bottom: 35px;
+      max-width: 650px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 25px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: .25s;
+    }
+
+    .primary {
+      background: #168cff;
+      color: white;
+    }
+
+    .secondary {
+      background: white;
+      color: #073c78;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(0,0,0,.18);
+    }
+
+    /* ================= INTRO ================= */
+
+    .intro {
+      padding: 80px 8% 40px;
+      text-align: center;
+    }
+
+    .intro h2 {
+      font-size: 42px;
+      margin-bottom: 14px;
+    }
+
+    .intro p {
+      font-size: 19px;
+      color: #667085;
+    }
+
+    /* ================= SMARTFY ================= */
+
+    .smartfy {
+      min-height: 570px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+
+      padding: 65px 7%;
+
+      background:
+        linear-gradient(180deg, #ffffff 0%, #f3f9ff 100%);
+    }
+
+    .smartfy .product-text {
+      width: 42%;
+    }
+
+    .smartfy .product-image {
+      width: 58%;
+    }
+
+    .smartfy .product-image img {
+      width: 100%;
+      max-width: 950px;
+      display: block;
+      margin: auto;
+    }
+
+    .smartfy h2 {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .smartfy h3 {
+      font-size: 26px;
+      color: #168cff;
+      margin-bottom: 22px;
+    }
+
+    .smartfy p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #58657a;
+      margin-bottom: 22px;
+    }
+
+    .features {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .features li {
+      margin: 11px 0;
+      font-size: 17px;
+      color: #344054;
+    }
+
+    .features li::before {
+      content: "✓";
+      color: #168cff;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    /* ================= TCL FULL WIDTH ================= */
+
+    .tcl {
+      min-height: 610px;
+      width: 100%;
+
+      background-image: url("images/tcl-aire.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+
+      padding: 55px 7%;
+      position: relative;
+    }
+
+    .tcl-content {
+      width: 50%;
+      text-align: center;
+      margin-left: auto;
+      padding-top: 10px;
+    }
+
+    .tcl h2 {
+      font-size: 43px;
+      line-height: 1.05;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: #111;
+    }
+
+    .tcl h3 {
+      font-size: 30px;
+      color: #111;
+      margin-bottom: 8px;
+    }
+
+    .tcl-lines {
+      font-size: 23px;
+      line-height: 1.45;
+      color: #111;
+      font-weight: 700;
+    }
+
+    .tcl-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 70px;
+      margin-top: 38px;
+    }
+
+    .tcl-buttons .btn {
+      min-width: 150px;
+      text-align: center;
+    }
+
+    /* ================= MAYORISTAS ================= */
+
+    .mayoristas {
+      padding: 100px 8%;
+      text-align: center;
+      color: white;
+      background:
+        linear-gradient(135deg, #061a3b, #0758ac);
+    }
+
+    .mayoristas h2 {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .mayoristas p {
+      font-size: 20px;
+      max-width: 760px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+      color: #dbeeff;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #061328;
+      color: #dceaff;
+      padding: 50px 8%;
+      text-align: center;
+    }
+
+    footer img {
+      height: 60px;
+      margin-bottom: 20px;
+      filter: brightness(0) invert(1);
+    }
+
+    footer p {
+      line-height: 1.8;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 850px) {
+
+      header {
+        height: 78px;
+      }
+
+      .logo img {
+        height: 50px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        min-height: 720px;
+        background-position: 67% center;
+        align-items: flex-start;
+        padding-top: 90px;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(
+            180deg,
+            rgba(3,19,48,.85) 0%,
+            rgba(3,19,48,.62) 55%,
+            rgba(3,19,48,.15) 100%
+          );
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .smartfy {
+        flex-direction: column;
+        padding: 55px 6%;
+      }
+
+      .smartfy .product-text,
+      .smartfy .product-image {
+        width: 100%;
+      }
+
+      .smartfy h2 {
+        font-size: 38px;
+      }
+
+      .tcl {
+        min-height: 720px;
+        background-size: auto 100%;
+        background-position: 35% center;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 45px 6%;
+      }
+
+      .tcl-content {
+        width: 100%;
+        background: rgba(255,255,255,.88);
+        padding: 25px 15px;
+        border-radius: 12px;
+      }
+
+      .tcl h2 {
+        font-size: 34px;
+      }
+
+      .tcl h3 {
+        font-size: 24px;
+      }
+
+      .tcl-lines {
+        font-size: 18px;
+      }
+
+      .tcl-buttons {
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .mayoristas h2 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+  <a href="#" class="logo">
+    <img src="images/logo-trex.png" alt="TREX">
+  </a>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#productos">Productos</a>
+    <a href="#mayoristas">Mayoristas</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+</header>
+
+
+<!-- PORTADA -->
+
+<section class="hero" id="inicio">
+
+  <div class="hero-content">
+
+    <h1>
+      Tecnología para tu hogar.<br>
+      <span>Oportunidades para tu negocio.</span>
+    </h1>
+
+    <p>
+      Conocé las próximas novedades de TREX en televisores Smartfy,
+      aires acondicionados TCL y tecnología para hogares,
+      comercios y empresas.
+    </p>
+
+    <div class="buttons">
+
+      <a href="#productos" class="btn primary">
+        Explorar productos
+      </a>
+
+      <a href="#mayoristas" class="btn secondary">
+        Solicitar cotización mayorista
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- INTRO -->
+
+<section class="intro" id="productos">
+
+  <h2>Tecnología que llega más cerca.</h2>
+
+  <p>
+    Descubrí los productos que próximamente estarán disponibles con TREX.
+  </p>
+
+</section>
+
+
+<!-- SMARTFY -->
+
+<section class="smartfy">
+
+  <div class="product-text">
+
+    <h2>Smart TV Smartfy</h2>
+
+    <h3>Entretenimiento sin límites.</h3>
+
+    <p>
+      Tecnología, conectividad y calidad de imagen para transformar
+      la experiencia de entretenimiento en tu hogar.
+    </p>
+
+    <ul class="features">
+      <li>Google TV</li>
+      <li>Resolución 4K Ultra HD</li>
+      <li>Wi-Fi integrado</li>
+      <li>Soundbar integrada según modelo</li>
+      <li>HDMI y USB</li>
+      <li>Modelos de 32" a 65"</li>
+    </ul>
+
+    <a href="#contacto" class="btn primary">
+      Consultar disponibilidad
+    </a>
+
+  </div>
+
+
+  <div class="product-image">
+
+    <img
+      src="images/smartfy-tv.png"
+      alt="Smart TV Smartfy">
+
+  </div>
+
+</section>
+
+
+<!-- TCL -->
+
+<section class="tcl">
+
+  <div class="tcl-content">
+
+    <h2>Aires acondicionados TCL</h2>
+
+    <h3>Confort inteligente. Menor consumo.</h3>
+
+    <div class="tcl-lines">
+      Smart Inverter · T-AI Energy Saving<br>
+      Wi-Fi · TCL HOME · Google Home · Alexa<br>
+      Gentle Breeze · Enfriamiento rápido
+    </div>
+
+    <div class="tcl-buttons">
+
+      <a href="#contacto" class="btn primary">
+        Cotizar
+      </a>
+
+      <a href="#contacto" class="btn primary">
+        Ver modelos
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- MAYORISTAS -->
+
+<section class="mayoristas" id="mayoristas">
+
+  <h2>¿Sos comerciante o revendedor?</h2>
+
+  <p>
+    TREX también trabaja para vos. Accedé a oportunidades mayoristas,
+    productos tecnológicos y soluciones pensadas para hacer crecer
+    tu negocio.
+  </p>
+
+  <a href="#contacto" class="btn secondary">
+    Solicitar información mayorista
+  </a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer id="contacto">
+
+  <img src="images/logo-trex.png" alt="TREX">
+
+  <p>
+    <strong>TREX Paraguay</strong><br>
+    Tecnología para tu hogar y oportunidades para tu negocio.
+  </p>
+
+  <br>
+
+  <p>
+    ventas@trex.com.py
+  </p>
+
+  <br>
+
+  <p>
+    © 2026 TREX Paraguay · Todos los derechos reservados.
+  </p>
+
+</footer>
+
+</body>
+</html>
